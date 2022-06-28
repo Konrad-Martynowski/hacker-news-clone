@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Container } from "react-bootstrap";
 
 import { BrowserRouter } from "react-router-dom";

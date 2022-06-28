@@ -4,7 +4,7 @@ import axios from "axios";
 import DataContext from "../context/DataContext";
 
 export default function DataLayer({ children }) {
-  const { data, updateData } = useContext(DataContext);
+  const { updateData } = useContext(DataContext);
 
   useEffect(() => {
     axios
@@ -14,7 +14,7 @@ export default function DataLayer({ children }) {
           axios
             .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
             .then((res) => {
-              updateData({ ...res.data, hidden: false });
+              updateData({ ...res.data, hidden: false, scoreAdded: false });
             })
             .catch((err) => {
               console.log(err);

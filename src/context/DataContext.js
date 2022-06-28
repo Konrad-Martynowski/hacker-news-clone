@@ -23,8 +23,24 @@ export const DataProvider = ({ children }) => {
     setError(message);
   };
 
+  const updateScore = (prev, newScore) => {
+    setData(
+      data.map((d) =>
+        d.id === prev.id ? { ...d, score: newScore, scoreAdded: true } : d
+      )
+    );
+  };
+
   return (
-    <DataContext.Provider value={{ data, updateData, error, updateError }}>
+    <DataContext.Provider
+      value={{
+        data,
+        updateData,
+        error,
+        updateError,
+        updateScore,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );
